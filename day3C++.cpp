@@ -1,4 +1,144 @@
 #include <iostream>
+using namespace std;
+class Counter
+{
+private:
+    static int constructed;
+    static int destroyed;
+    const int accountNumber;
+public:
+    Counter(int accNo) : accountNumber(accNo)
+    {
+        constructed++;
+        cout << "Object constructed. Account No: "
+             << accountNumber << endl;
+    }
+    void display() const
+    {
+        cout << "Account Number: " << accountNumber << endl;
+    }
+    ~Counter()
+    {
+        destroyed++;
+        cout << "Object destroyed. Account No: "
+             << accountNumber << endl;
+    }
+    static void displayCount()
+    {
+        cout << "\nObjects constructed: " << constructed << endl;
+        cout << "Objects destroyed: " << destroyed << endl;
+    }
+};
+int Counter::constructed = 0;
+int Counter::destroyed = 0;
+int main()
+{
+    cout << "Initially:" << endl;
+    Counter::displayCount();
+    Counter c1(101);
+    Counter c2(102);
+    cout << "\nAfter creating two objects:" << endl;
+    Counter::displayCount();
+    const Counter c3(103);
+    cout << "\nCalling const member function on const object:" << endl;
+    c3.display();
+    cout << "\nAfter creating third object:" << endl;
+    Counter::displayCount();
+    {
+        Counter c4(104);
+        cout << "\nInside block:" << endl;
+        Counter::displayCount();
+    }
+    cout << "\nAfter c4 is destroyed:" << endl;
+    Counter::displayCount();
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #include <iostream>
+using namespace std;
+
+class Test
+{
+public:
+    Test()
+    {
+        cout << "Object created" << endl;
+    }
+
+    ~Test()
+    {
+        cout << "Object destroyed" << endl;
+    }
+};
+
+int main()
+{
+    Test* p1 = new Test();
+
+    Test* p2 = p1;
+
+    delete p1;
+
+    p1 = nullptr;
+    p2 = nullptr;
+
+    return 0;
+}
+ */
+/* #include <iostream>
+using namespace std;
+
+class Test
+{
+public:
+    Test()
+    {
+        cout << "Object created" << endl;
+    }
+
+    ~Test()
+    {
+        cout << "Object destroyed" << endl;
+    }
+};
+
+int main()
+{
+    Test* p1 = new Test();
+
+    Test* p2 = p1;
+
+    delete p1;
+
+    p2 = nullptr;
+
+    return 0;
+}
+ */
+/* #include <iostream>
 class Product
 {
 public:
@@ -31,77 +171,29 @@ int main()
     std::cout << "\nProducts after delete: " << Product::count << std::endl;
     return 0;
 } 
-
-
-
-
-/* #include<iostream>
-class Employee
-{ 
-  public:
-   int employeeId;
-   char name[20];
-   float salary;
-   void details()
-   {
-         std::cout << "Enter Employee ID: ";
-          std::cin >>employeeId;
-          std::cout << "Enter Name: ";
-          std::cin >>name;
-          std::cout << "Enter Salary: ";
-          std::cin >>salary;       
-   }
-   void display()
-   {
-            std::cout << "Employee ID: " <<employeeId << std::endl;
-            std::cout << "Name: " <<name << std::endl;
-            std::cout << "Salary: " <<salary << std::endl;
-   }
-   void increaseSalary(float percentage)
-   {
-            salary += salary * (percentage / 100);
-            std::cout << "Salary increased by " << percentage << "%." << std::endl;
-   }
-   void exit()
-   {
-
-                std::cout << "Employee object deleted."
-                          << std::endl;
-   }
-
+ */
+/* #include <iostream>
+using namespace std;
+class Test
+{
+public:
+    Test()
+    {
+        cout << "Test object created" << endl;
+    }
+    ~Test()
+    {
+        cout << "Test object destroyed" << endl;
+    }
 };
 int main()
 {
-  Employee *emp=new Employee();
-  int op;
-  while(1)
-  {
-  std::cout<<"1.Enter employee details\n 2.Display Employee\n 3.Increase salary\n 4.Exit\n";
-  std::cout<<"Enter you choice:"<<std::endl;
-  std::cin>>op;
-  switch(op)
-  {
-    case 1: emp->details();
-            break;
-          
-    case 2:emp->display();
-            break;
-    case 3:
-            float percentage;
-            std::cout << "Enter percentage to increase salary by: ";
-            std::cin >> percentage;
-            emp->increaseSalary(percentage);
-            break;
-    case 4:
-            emp->exit();
-    default:   
-            std::cout<<"Invalid input"<<std::endl;        
-  }
-}
-  return 0;
+    Test* p = new Test();
+    p = new Test();
+    delete p;
+    return 0;
 } */
-/* #include <iostream>
-
+/*  #include <iostream>
 class Test
 {
 public:
@@ -116,13 +208,13 @@ public:
 };
 
 int main()
-{
-   Test *p1=new Test();
-   Test *p2=p1;
-   delete p1;
-   delete p2;
-} */
-/* #include<iostream>
+{   
+   Test a;
+   Test *b=new Test();
+   Test c;
+   delete b;
+}  */
+/*  #include<iostream>
 class Rectangle
 { 
   public:
@@ -158,5 +250,95 @@ int main()
     area(r1,2);
     std::cout << "Area of r2: "<<std::endl;
     area(r2,2);  
+    return 0;
+}  */
+/* #include <iostream>
+class Employee
+{
+public:
+    int employeeId;
+    char name[20];
+    float salary;
+
+    void details()
+    {
+        std::cout << "Enter Employee ID: ";
+        std::cin >> employeeId;
+
+        std::cout << "Enter Name: ";
+        std::cin >> name;
+
+        std::cout << "Enter Salary: ";
+        std::cin >> salary;
+    }
+
+    void display()
+    {
+        std::cout << "Employee ID: " << employeeId << std::endl;
+        std::cout << "Name: " << name << std::endl;
+        std::cout << "Salary: " << salary << std::endl;
+    }
+
+    void increaseSalary(float percentage)
+    {
+        salary += salary * (percentage / 100);
+        std::cout << "Salary increased by " << percentage<< "%." << std::endl;
+        std::cout<<"Increased Salary:"<<salary<<std::endl;
+    }
+
+    void exit()
+    {
+        std::cout << "Employee object deleted."
+                  << std::endl;
+    }
+};
+
+int main()
+{
+    Employee *emp = new Employee();
+
+    int op;
+
+    while (1)
+    {
+        std::cout << "1. Enter employee details\n";
+        std::cout << "2. Display Employee\n";
+        std::cout << "3. Increase salary\n";
+        std::cout << "4. Exit\n";
+
+        std::cout << "Enter your choice: ";
+        std::cin >> op;
+
+        switch (op)
+        {
+        case 1:
+            emp->details();
+            break;
+
+        case 2:
+            emp->display();
+            break;
+
+        case 3:
+        {
+            float percentage;
+
+            std::cout << "Enter percentage to increase salary by: ";
+            std::cin >> percentage;
+
+            emp->increaseSalary(percentage);
+            break;
+        }
+
+        case 4:
+            emp->exit();
+            delete emp;
+            return 0;
+
+        default:
+            std::cout << "Invalid input" << std::endl;
+        }
+    }
+
     return 0;
 } */

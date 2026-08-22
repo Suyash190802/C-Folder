@@ -1,4 +1,4 @@
-#include<iostream>
+ #include<iostream>
 #include<string.h>
 class Student
 {
@@ -51,11 +51,11 @@ int main()
 
   return 0;
 }
+ 
 
 
-
-
-/* #include <iostream>
+/* 
+ #include <iostream>
 int main()
 {
     for (int i=0; i<5; i++)
@@ -71,9 +71,9 @@ int main()
         std::cout << std::endl;
     }
     return 0;
-}
- */
-/* #include <iostream>
+} */
+/*  
+ #include <iostream>
 int main()
 {
     int num=1;
@@ -87,7 +87,7 @@ int main()
         std::cout<<std::endl;
     }
     return 0;
-} */
+}   */
 /* #include<iostream>
 #include<string>
 void car(std::string msg,int num=123)
@@ -100,7 +100,7 @@ int main()
    car("EZ8",125);
   return 0;
 } */
-/* #include<iostream>
+/*  #include<iostream>
 int palindrome(int num) 
 {
     int rev = 0, originalNum = num;
@@ -120,7 +120,7 @@ int main()
     else
         std::cout << num << " is not a palindrome." << std::endl;
     return 0;
-} */
+}  */
 /* #include<iostream>
 int reverseNumber(int num) {
     int rev = 0;
@@ -146,32 +146,41 @@ int fibonacci(int n)
 }
 int main()
 {
-  int n=15;
-  std::cout<<fibonacci(n)<<std::endl;
-  return 0;
-} */
-/* #include <iostream>
-void printn(int n)
+   int index;
+
+    std::cout << "Enter index: ";
+    std::cin >> index;
+
+    std::cout << "Fibonacci value: " << fibonacci(index) <<std:: endl;
+    return 0;
+}   */
+/*   #include <iostream>
+void recursion(int n)
 {
     if (n == 0)
         return;
-    //std::cout <<n << " ";
-    printn(n - 1);   
-    std::cout << n << " "<<std::endl;
+    std::cout <<n << " ";
+    recursion(n - 1);   
+    //std::cout << n << " "<<std::endl;
 }
 int main()
 {
     int n;
     std::cout<<"enter the value of n:";
     std::cin>>n;
-    printn(n);
+    recursion(n);
     return 0;
-} */
-/*   int x=10;
+}   */
+/* #include<iostream>
+int main()
+{  
+int x=10;
   int* p=&x;
   int** q=&p;
   int*** r=&q;
   **q=25;
   std::cout<<x<<std::endl;
   std::cout<<(***r)<<std::endl;
-  std::cout<<*q<<std::endl; */
+  std::cout<<*q<<std::endl; 
+  return 0;
+}   */
