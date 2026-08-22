@@ -452,7 +452,7 @@ int main()
 
     return 0;
 } */
-#include <stdio.h>
+/* #include <stdio.h>
 int main()
 {
     int a[100], n, i, j, temp;
@@ -498,4 +498,4 @@ int main()
         printf("%d ", a[i]);
     }
     return 0;
-}
+} */
