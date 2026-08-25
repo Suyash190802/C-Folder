@@ -1,4 +1,75 @@
-#include <iostream>
+#include<iostream>
+#include<string>
+class Student 
+{
+   public:
+     std::string name;
+     int marks;
+     Student(std::string n, int m)
+        : name(n), marks(m)
+    {
+    }
+    bool operator>(const Student& s) const
+    {
+      return marks>s.marks;
+    }
+};
+int main()
+{
+  Student s1("rahul",75);
+  Student s2("Amit",62);
+  if(s1>s2)
+  {
+    std::cout<<"rahul has higher marks";
+  }
+  return 0;
+}
+
+
+
+
+/* #include <iostream>
+#include <string>
+class Student
+{
+public:
+    std::string name;
+    int marks;
+    Student(std::string n, int m)
+        : name(n), marks(m)
+    {
+    }
+    void display()
+    {
+        std::cout << "Name: " << name << std::endl;
+        std::cout << "Marks: " << marks << std::endl;
+    }
+    Student& operator++()
+    {
+        marks += 5;
+        return *this;
+    }
+    Student operator++(int)
+    {
+        Student temp = *this;
+        marks += 5;
+        return temp;
+    }
+};
+int main()
+{
+    Student s("Suyash", 67);
+    std::cout << "Original:" << std::endl;
+    s.display();
+    Student& a = ++s;
+    std::cout << "\nThrough address:" << std::endl;
+    a.display();
+    Student b = s++;
+    std::cout << "\nThrough normal op++:" << std::endl;
+    s.display();
+    return 0;
+} */
+/* #include <iostream>
 #include <string>
 class Address
 {
@@ -42,25 +113,7 @@ int main()
     s.displayDetails();
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ */
 /* #include<iostream>
 class CPU
 {
